@@ -17,24 +17,17 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 })(window,document,'script','dataLayer','GTM-PF3TQ9ZQ');
 </script>
 
-<!-- Google Ads -->
-<!-- Google Ads tracking à configurer plus tard
-<script async src="https://www.googletagmanager.com/gtag/js?id=AW-XXXXXXX"></script>
-...
--->
-
+<!-- Script conversion (provisoire) -->
+<script>
 function gtag_report_conversion() {
-  gtag('event', 'conversion', {
-    'send_to': 'AW-XXXXXXX/XXXXXXX'
-  });
+  console.log("clic téléphone");
   return true;
 }
 </script>
 
 <style>
 body {font-family: Arial; margin:0; padding-bottom:80px;}
-.hero {background:#2e7d32; color:white; padding:60px; text-align:center;}
-.cta {background:#ff6600; color:white; padding:15px; text-decoration:none; border-radius:8px;}
+.cta {background:#ff6600; color:white; padding:15px; text-decoration:none; border-radius:8px; display:inline-block; margin-top:20px;}
 .section {padding:25px;}
 footer {text-align:center; font-size:12px; padding:20px;}
 </style>
@@ -47,14 +40,27 @@ footer {text-align:center; font-size:12px; padding:20px;}
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PF3TQ9ZQ"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
-<!-- HERO -->
-<div class="hero">
-<h1>Votre paysagiste à Montmerle-sur-Saône</h1>
+<!-- HERO PREMIUM -->
+<div style="
+  background:url('https://images.unsplash.com/photo-1501004318641-b39e6451bec6') center/cover;
+  position:relative;
+  color:white;
+  padding:100px 20px;
+  text-align:center;
+">
 
-<p>
-Vous manquez de temps pour entretenir votre jardin ?<br>
-Votre extérieur ne correspond plus à vos envies ?<br>
-Nous créons et entretenons des jardins durables et esthétiques.
+<div style="
+  position:absolute;
+  top:0;left:0;right:0;bottom:0;
+  background:rgba(0,0,0,0.6);
+"></div>
+
+<div style="position:relative; z-index:2; max-width:700px; margin:auto;">
+
+<h1 style="font-size:40px;">Votre paysagiste à Montmerle-sur-Saône</h1>
+
+<p style="font-size:20px;">
+Jardins écoresponsables & entretien écologique
 </p>
 
 <p>⭐ Note moyenne 5/5 – Clients satisfaits</p>
@@ -62,6 +68,8 @@ Nous créons et entretenons des jardins durables et esthétiques.
 <a href="tel:+33482838915" onclick="return gtag_report_conversion()" class="cta">
 📞 Appel gratuit – Devis immédiat
 </a>
+
+</div>
 </div>
 
 <!-- SERVICES -->
@@ -107,4 +115,4 @@ style="position:fixed; bottom:0; left:0; right:0; background:#ff6600; color:whit
 </a>
 
 </body>
-</html>
+</html>  
