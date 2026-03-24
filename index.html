@@ -53,6 +53,10 @@
       line-height: 1.6;
       padding-bottom: 80px; /* espace bouton sticky mobile */
     }
+    /* Quand bandeau cookies visible : éviter que footer soit masqué */
+    body.qt-cookies-visible {
+      padding-bottom: 80px;
+    }
 
     /* ==============================
        STICKY MOBILE CTA
@@ -678,7 +682,8 @@
     }
     @media(max-width:768px) {
       #qt-cookie-banner {
-        bottom: 72px;
+        bottom: 80px; /* au-dessus du bouton sticky mobile (~60px) */
+        border-radius: 12px 12px 0 0;
       }
     }
     .qt-cookie-inner {
@@ -1413,6 +1418,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     if (b) b.classList.remove('visible');
     var m = document.getElementById('qt-cookie-modal');
     if (m) m.classList.remove('open');
+    document.body.classList.remove('qt-cookies-visible');
   }
 
   // ── Actions boutons
@@ -1438,6 +1444,24 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
   // ── Au chargement : vérifier si déjà un choix
   document.addEventListener('DOMContentLoaded', function() {
+    // Ajuster le bottom du bandeau selon la hauteur réelle du sticky CTA
+    var sticky = document.querySelector('.sticky-cta');
+    var banner = document.getElementById('qt-cookie-banner');
+    if (sticky && banner && window.innerWidth <= 768) {
+      var stickyH = sticky.offsetHeight || 60;
+      banner.style.bottom = (stickyH + 8) + 'px';
+    }
+    // Recalculer si resize
+    window.addEventListener('resize', function() {
+      if (sticky && banner) {
+        if (window.innerWidth <= 768) {
+          banner.style.bottom = ((sticky.offsetHeight || 60) + 8) + 'px';
+        } else {
+          banner.style.bottom = '0';
+        }
+      }
+    });
+
     var saved = getCookie(COOKIE_KEY);
     if (saved) {
       // Choix déjà fait — appliquer silencieusement
@@ -1454,7 +1478,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       // Pas de choix → afficher le bandeau
       setTimeout(function() {
         var b = document.getElementById('qt-cookie-banner');
-        if (b) b.classList.add('visible');
+        if (b) {
+          b.classList.add('visible');
+          document.body.classList.add('qt-cookies-visible');
+        }
       }, 800);
     }
   });
