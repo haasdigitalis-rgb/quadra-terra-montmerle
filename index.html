@@ -654,7 +654,198 @@
       .hero-trust { gap: 12px; }
       .zones-intro { gap: 28px; }
     }
-  </style>
+  
+    /* ==============================
+       BANDEAU COOKIES QUADRA TERRA
+       CNIL + Google Consent Mode v2
+    ============================== */
+    #qt-cookie-banner {
+      position: fixed;
+      bottom: 0; left: 0; right: 0;
+      z-index: 99999;
+      background: #1a2e1c;
+      border-top: 3px solid var(--vert-clair);
+      padding: 20px 24px;
+      box-shadow: 0 -6px 32px rgba(0,0,0,.35);
+      font-family: var(--font-corps);
+      transform: translateY(100%);
+      transition: transform .4s cubic-bezier(.4,0,.2,1);
+    }
+    #qt-cookie-banner.visible {
+      transform: translateY(0);
+    }
+    /* Sur mobile : laisser de la place au-dessus du sticky CTA */
+    @media(max-width:768px) {
+      #qt-cookie-banner {
+        bottom: 72px;
+      }
+    }
+    .qt-cookie-inner {
+      max-width: 1100px;
+      margin: auto;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    .qt-cookie-logo {
+      flex-shrink: 0;
+      width: 36px; height: 36px;
+      background: var(--vert);
+      border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .qt-cookie-text {
+      flex: 1;
+      min-width: 200px;
+    }
+    .qt-cookie-text p {
+      color: rgba(255,255,255,.82);
+      font-size: .83rem;
+      line-height: 1.55;
+      margin: 0;
+    }
+    .qt-cookie-text strong { color: #fff; }
+    .qt-cookie-text a {
+      color: var(--vert-clair);
+      text-decoration: underline;
+      font-size: .8rem;
+    }
+    .qt-cookie-btns {
+      display: flex;
+      gap: 10px;
+      flex-shrink: 0;
+      flex-wrap: wrap;
+    }
+    .qt-btn-accept {
+      background: var(--vert-clair);
+      color: #fff;
+      border: none;
+      padding: 10px 22px;
+      border-radius: 50px;
+      font-family: var(--font-corps);
+      font-weight: 700;
+      font-size: .88rem;
+      cursor: pointer;
+      transition: background .2s;
+      white-space: nowrap;
+    }
+    .qt-btn-accept:hover { background: var(--vert); }
+    .qt-btn-refuse {
+      background: transparent;
+      color: rgba(255,255,255,.7);
+      border: 1.5px solid rgba(255,255,255,.3);
+      padding: 10px 22px;
+      border-radius: 50px;
+      font-family: var(--font-corps);
+      font-weight: 600;
+      font-size: .88rem;
+      cursor: pointer;
+      transition: border-color .2s, color .2s;
+      white-space: nowrap;
+    }
+    .qt-btn-refuse:hover { border-color: rgba(255,255,255,.7); color: #fff; }
+    .qt-btn-prefs {
+      background: transparent;
+      color: rgba(255,255,255,.5);
+      border: none;
+      padding: 10px 10px;
+      font-family: var(--font-corps);
+      font-size: .8rem;
+      cursor: pointer;
+      text-decoration: underline;
+      white-space: nowrap;
+    }
+    /* Modal préférences */
+    #qt-cookie-modal {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 999999;
+      background: rgba(0,0,0,.65);
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+    #qt-cookie-modal.open { display: flex; }
+    .qt-modal-box {
+      background: #fff;
+      border-radius: 16px;
+      max-width: 520px;
+      width: 100%;
+      padding: 36px 32px;
+      position: relative;
+    }
+    .qt-modal-box h3 {
+      font-family: var(--font-titre);
+      color: var(--vert-fonce);
+      font-size: 1.4rem;
+      margin-bottom: 8px;
+    }
+    .qt-modal-box > p {
+      font-size: .85rem;
+      color: #666;
+      margin-bottom: 24px;
+      line-height: 1.6;
+    }
+    .qt-toggle-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 0;
+      border-top: 1px solid #eee;
+      gap: 16px;
+    }
+    .qt-toggle-info strong {
+      display: block;
+      font-size: .9rem;
+      color: #333;
+      margin-bottom: 3px;
+    }
+    .qt-toggle-info span { font-size: .78rem; color: #888; }
+    /* Toggle switch */
+    .qt-switch {
+      position: relative;
+      width: 44px; height: 24px;
+      flex-shrink: 0;
+    }
+    .qt-switch input { opacity: 0; width: 0; height: 0; }
+    .qt-slider {
+      position: absolute;
+      cursor: pointer;
+      inset: 0;
+      background: #ccc;
+      border-radius: 24px;
+      transition: .3s;
+    }
+    .qt-slider::before {
+      content: '';
+      position: absolute;
+      height: 18px; width: 18px;
+      left: 3px; bottom: 3px;
+      background: #fff;
+      border-radius: 50%;
+      transition: .3s;
+    }
+    .qt-switch input:checked + .qt-slider { background: var(--vert-clair); }
+    .qt-switch input:checked + .qt-slider::before { transform: translateX(20px); }
+    .qt-switch input:disabled + .qt-slider { opacity: .6; cursor: not-allowed; }
+    .qt-modal-footer {
+      margin-top: 24px;
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .qt-modal-footer .qt-btn-accept { flex: 1; text-align: center; padding: 12px; }
+    .qt-modal-footer .qt-btn-refuse { flex: 1; text-align: center; padding: 12px; }
+    .qt-modal-close {
+      position: absolute;
+      top: 14px; right: 16px;
+      background: none; border: none;
+      font-size: 1.3rem; cursor: pointer; color: #aaa;
+    }
+
+    </style>
 
   <!-- ================================================
        GOOGLE ADS CONVERSION TRACKING
@@ -695,6 +886,76 @@
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PF3TQ9ZQ"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
+
+
+<!-- ================================================
+     BANDEAU COOKIES QUADRA TERRA
+     CNIL conforme + Google Consent Mode v2
+     GTM-PF3TQ9ZQ / Montmerle-sur-Saône
+================================================ -->
+<div id="qt-cookie-banner" role="dialog" aria-live="polite" aria-label="Gestion des cookies">
+  <div class="qt-cookie-inner">
+    <div class="qt-cookie-logo">
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+    </div>
+    <div class="qt-cookie-text">
+      <p><strong>Quadra Terra utilise des cookies.</strong> Nous utilisons des cookies analytiques (Google Analytics) et publicitaires (Google Ads) pour mesurer nos performances et améliorer votre expérience. Vous pouvez accepter, refuser ou personnaliser vos choix. <a href="#" onclick="document.getElementById('modal-pc').classList.add('open');return false;">Politique de confidentialité</a></p>
+    </div>
+    <div class="qt-cookie-btns">
+      <button class="qt-btn-refuse" onclick="qtCookieRefuse()">Refuser</button>
+      <button class="qt-btn-prefs" onclick="document.getElementById('qt-cookie-modal').classList.add('open')">Personnaliser</button>
+      <button class="qt-btn-accept" onclick="qtCookieAccept()">Tout accepter</button>
+    </div>
+  </div>
+</div>
+
+<!-- Modal préférences cookies -->
+<div id="qt-cookie-modal" role="dialog" aria-modal="true" aria-labelledby="qt-modal-title">
+  <div class="qt-modal-box">
+    <button class="qt-modal-close" onclick="document.getElementById('qt-cookie-modal').classList.remove('open')" aria-label="Fermer">✕</button>
+    <h3 id="qt-modal-title">Mes préférences cookies</h3>
+    <p>Choisissez les catégories de cookies que vous acceptez. Votre choix est conservé 13 mois.</p>
+
+    <div class="qt-toggle-row">
+      <div class="qt-toggle-info">
+        <strong>Cookies essentiels</strong>
+        <span>Nécessaires au bon fonctionnement du site. Ne peuvent pas être désactivés.</span>
+      </div>
+      <label class="qt-switch">
+        <input type="checkbox" checked disabled>
+        <span class="qt-slider"></span>
+      </label>
+    </div>
+
+    <div class="qt-toggle-row">
+      <div class="qt-toggle-info">
+        <strong>Mesure d'audience (Analytics)</strong>
+        <span>Google Analytics — nous aide à comprendre comment vous utilisez le site.</span>
+      </div>
+      <label class="qt-switch">
+        <input type="checkbox" id="qt-toggle-analytics">
+        <span class="qt-slider"></span>
+      </label>
+    </div>
+
+    <div class="qt-toggle-row">
+      <div class="qt-toggle-info">
+        <strong>Publicité (Google Ads)</strong>
+        <span>Mesure l'efficacité de nos campagnes publicitaires locales.</span>
+      </div>
+      <label class="qt-switch">
+        <input type="checkbox" id="qt-toggle-ads">
+        <span class="qt-slider"></span>
+      </label>
+    </div>
+
+    <div class="qt-modal-footer">
+      <button class="qt-btn-refuse" onclick="qtCookieRefuse()">Tout refuser</button>
+      <button class="qt-btn-accept" onclick="qtCookieSavePrefs()">Enregistrer mes choix</button>
+    </div>
+  </div>
+</div>
+
 
 <!-- ============ STICKY MOBILE CTA ============ -->
 <div class="sticky-cta" role="complementary" aria-label="Appeler Quadra Terra">
@@ -1096,5 +1357,120 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   }
 </script>
 
+
+<script>
+/* ================================================
+   QUADRA TERRA — Cookie Manager
+   CNIL + Google Consent Mode v2
+   Montmerle-sur-Saône | GTM-PF3TQ9ZQ
+================================================ */
+(function() {
+  var COOKIE_KEY = 'qt_consent_v1';
+  var EXPIRY_DAYS = 395; // ~13 mois CNIL
+
+  // ── Consent Mode v2 : état par défaut REFUS (privacy by design)
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){ dataLayer.push(arguments); }
+  gtag('consent', 'default', {
+    'ad_storage':            'denied',
+    'ad_user_data':          'denied',
+    'ad_personalization':    'denied',
+    'analytics_storage':     'denied',
+    'functionality_storage': 'granted',
+    'security_storage':      'granted',
+    'wait_for_update':        500
+  });
+
+  function setCookie(name, value, days) {
+    var d = new Date();
+    d.setTime(d.getTime() + days * 24 * 60 * 60 * 1000);
+    document.cookie = name + '=' + encodeURIComponent(value) + ';expires=' + d.toUTCString() + ';path=/;SameSite=Lax';
+  }
+
+  function getCookie(name) {
+    var ca = document.cookie.split(';');
+    for (var i = 0; i < ca.length; i++) {
+      var c = ca[i].trim();
+      if (c.indexOf(name + '=') === 0)
+        return decodeURIComponent(c.substring(name.length + 1));
+    }
+    return null;
+  }
+
+  function applyConsent(analytics, ads) {
+    gtag('consent', 'update', {
+      'ad_storage':         ads       ? 'granted' : 'denied',
+      'ad_user_data':       ads       ? 'granted' : 'denied',
+      'ad_personalization': ads       ? 'granted' : 'denied',
+      'analytics_storage':  analytics ? 'granted' : 'denied'
+    });
+    // Notifier GTM
+    dataLayer.push({
+      event: 'qt_consent_update',
+      qt_analytics: analytics,
+      qt_ads: ads
+    });
+  }
+
+  function hideBanner() {
+    var b = document.getElementById('qt-cookie-banner');
+    if (b) b.classList.remove('visible');
+    var m = document.getElementById('qt-cookie-modal');
+    if (m) m.classList.remove('open');
+  }
+
+  // ── Actions boutons
+  window.qtCookieAccept = function() {
+    setCookie(COOKIE_KEY, JSON.stringify({analytics:true, ads:true}), EXPIRY_DAYS);
+    applyConsent(true, true);
+    hideBanner();
+  };
+
+  window.qtCookieRefuse = function() {
+    setCookie(COOKIE_KEY, JSON.stringify({analytics:false, ads:false}), EXPIRY_DAYS);
+    applyConsent(false, false);
+    hideBanner();
+  };
+
+  window.qtCookieSavePrefs = function() {
+    var analytics = document.getElementById('qt-toggle-analytics').checked;
+    var ads       = document.getElementById('qt-toggle-ads').checked;
+    setCookie(COOKIE_KEY, JSON.stringify({analytics:analytics, ads:ads}), EXPIRY_DAYS);
+    applyConsent(analytics, ads);
+    hideBanner();
+  };
+
+  // ── Au chargement : vérifier si déjà un choix
+  document.addEventListener('DOMContentLoaded', function() {
+    var saved = getCookie(COOKIE_KEY);
+    if (saved) {
+      // Choix déjà fait — appliquer silencieusement
+      try {
+        var prefs = JSON.parse(saved);
+        applyConsent(prefs.analytics, prefs.ads);
+        // Pré-cocher les toggles si on rouvre la modale
+        var ta = document.getElementById('qt-toggle-analytics');
+        var td = document.getElementById('qt-toggle-ads');
+        if (ta) ta.checked = prefs.analytics;
+        if (td) td.checked = prefs.ads;
+      } catch(e) {}
+    } else {
+      // Pas de choix → afficher le bandeau
+      setTimeout(function() {
+        var b = document.getElementById('qt-cookie-banner');
+        if (b) b.classList.add('visible');
+      }, 800);
+    }
+  });
+
+  // Fermeture modal au clic overlay
+  document.addEventListener('click', function(e) {
+    var modal = document.getElementById('qt-cookie-modal');
+    if (modal && e.target === modal) modal.classList.remove('open');
+  });
+})();
+</script>
+
 </body>
 </html>
+    
