@@ -1,4 +1,4 @@
-     <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="fr">
 <head>
   <meta charset="UTF-8" />
@@ -581,7 +581,74 @@
     /* ==============================
        RESPONSIVE HELPERS
     ============================== */
+
+    /* ==============================
+       BOUTONS APPEL — ULTRA CLIQUABLES
+    ============================== */
+    a[href^="tel:"] {
+      cursor: pointer !important;
+      -webkit-tap-highlight-color: rgba(58,125,68,.25);
+      touch-action: manipulation;
+      user-select: none;
+      -webkit-user-select: none;
+    }
+    .btn-primary, .btn-secondary, .cta-phone-big {
+      cursor: pointer !important;
+      touch-action: manipulation;
+      -webkit-tap-highlight-color: rgba(58,125,68,.25);
+    }
+    /* Zone de clic élargie sur mobile */
+    @media(max-width:768px) {
+      a[href^="tel:"] {
+        min-height: 52px;
+        display: inline-flex !important;
+        align-items: center;
+      }
+      .btn-primary {
+        padding: 18px 28px;
+        font-size: 1.05rem;
+        width: 100%;
+        justify-content: center;
+      }
+      .cta-phone-big {
+        font-size: 1.2rem;
+        padding: 18px 28px;
+        width: 100%;
+        justify-content: center;
+      }
+    }
+    /* Sticky CTA mobile renforcé */
+    .sticky-cta {
+      cursor: pointer;
+    }
+    .sticky-cta a {
+      min-height: 56px;
+      font-size: 1.1rem !important;
+      letter-spacing: .01em;
+    }
+    /* Animation pulse sur le gros bouton CTA */
+    .cta-phone-big {
+      animation: pulse-green 2.5s infinite;
+    }
+    @keyframes pulse-green {
+      0%   { box-shadow: 0 0 0 0 rgba(106,171,94,.55); }
+      70%  { box-shadow: 0 0 0 14px rgba(106,171,94,0); }
+      100% { box-shadow: 0 0 0 0 rgba(106,171,94,0); }
+    }
+    /* Hover states renforcés */
+    .btn-primary:hover, .btn-primary:focus {
+      background: var(--vert-fonce) !important;
+      outline: 3px solid var(--vert-clair);
+      outline-offset: 2px;
+    }
+    .cta-phone-big:hover, .cta-phone-big:focus {
+      background: var(--vert-fonce) !important;
+      outline: 3px solid var(--vert-clair);
+      outline-offset: 2px;
+    }
+
     @media(max-width:600px) {
+
       .cta-box { padding: 36px 22px; }
       .cta-phone-big { font-size: 1.15rem; padding: 16px 28px; }
       .hero-trust { gap: 12px; }
@@ -630,8 +697,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
 
 <!-- ============ STICKY MOBILE CTA ============ -->
-<div class="sticky-cta">
-  <a href="tel:+33482838915" onclick="return gtag_report_conversion();">
+<div class="sticky-cta" role="complementary" aria-label="Appeler Quadra Terra">
+  <a href="tel:+33482838915" onclick="return gtag_report_conversion();" style="display:flex;width:100%;align-items:center;justify-content:center;gap:10px;padding:16px 20px;font-size:1.1rem;font-weight:700;color:#fff;text-decoration:none;">
     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.01 1.14 2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
     Appeler maintenant – Devis gratuit
   </a>
@@ -648,7 +715,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </div>
     </div>
     <div class="header-cta">
-      <a href="tel:+33482838915">
+      <a href="tel:+33482838915" onclick="return gtag_report_conversion();">
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.01 1.14 2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
         Appel gratuit
       </a>
@@ -926,7 +993,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </div>
       <div class="footer-col">
         <h4>Contact</h4>
-        <a href="tel:+33482838915">☎ +33 04 82 83 89 15</a>
+        <a href="tel:+33482838915" onclick="return gtag_report_conversion();" style="color:var(--vert-clair);font-weight:700;font-size:1rem;text-decoration:none;display:inline-flex;align-items:center;gap:8px;">☎ 04 82 83 89 15</a>
         <p style="margin-top:8px; font-size:.82rem; color:rgba(255,255,255,.45);">
           Lun–Sam : 8h–19h<br>
           Devis gratuit sous 24h
