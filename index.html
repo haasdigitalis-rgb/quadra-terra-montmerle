@@ -1,16 +1,6 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <!-- Google Tag Manager -->
-<script>
-(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id=GTM-MDZQF5KW'+dl;
-f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-MDZQF5KW');
-</script>
-<!-- End Google Tag Manager -->
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Paysagiste Montmerle-sur-Saône | Quadra Terra – Aménagement & Entretien Extérieur</title>
@@ -22,6 +12,15 @@ f.parentNode.insertBefore(j,f);
   <meta property="og:title" content="Paysagiste Montmerle-sur-Saône | Quadra Terra" />
   <meta property="og:description" content="Aménagement extérieur, jardins nourriciers & entretien écologique. Devis gratuit." />
   <meta property="og:type" content="website" />
+
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-MDZQF5KW');</script>
+  <!-- End Google Tag Manager -->
+
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -850,21 +849,41 @@ f.parentNode.insertBefore(j,f);
       background: none; border: none;
       font-size: 1.3rem; cursor: pointer; color: #aaa;
     }
- 
+  </style>
+
+  <!-- ================================================
+       TRACKING APPELS — GTM DataLayer uniquement
+       Conteneur : GTM-MDZQF5KW
+       Configurer la conversion dans GTM :
+         Déclencheur : Événement personnalisé "click_appel"
+         Balise      : Google Ads Conversion ou GA4 Event
+  ================================================ -->
+  <script>
+    function gtag_report_conversion() {
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push({
+        'event':          'click_appel',
+        'event_category': 'Conversion',
+        'event_label':    'CTA Appel Landing Page Montmerle',
+        'page_location':  window.location.href
+      });
+      return true; // laisser le lien tel: fonctionner normalement
+    }
+  </script>
+  <!-- FIN TRACKING APPELS -->
 
 </head>
 
 <body>
 <!-- Google Tag Manager (noscript) -->
-<noscript>
-<iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MDZQF5KW"
-height="0" width="0" style="display:none;visibility:hidden"></iframe>
-</noscript>
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MDZQF5KW"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
- <!-- ================================================
+
+<!-- ================================================
      BANDEAU COOKIES QUADRA TERRA
      CNIL conforme + Google Consent Mode v2
-     GTM-PF3TQ9ZQ / Montmerle-sur-Saône
+     GTM-MDZQF5KW / Montmerle-sur-Saône
 ================================================ -->
 <div id="qt-cookie-banner" role="dialog" aria-live="polite" aria-label="Gestion des cookies">
   <div class="qt-cookie-inner">
@@ -1325,7 +1344,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe>
     });
   });
 
-  // Tracking appels : fonction gtag_report_conversion() définie dans le <head>
 </script>
 
 
@@ -1333,7 +1351,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe>
 /* ================================================
    QUADRA TERRA — Cookie Manager
    CNIL + Google Consent Mode v2
-   Montmerle-sur-Saône | GTM-PF3TQ9ZQ
+   Montmerle-sur-Saône | GTM-MDZQF5KW
 ================================================ */
 (function() {
   var COOKIE_KEY = 'qt_consent_v1';
